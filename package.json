@@ -1,0 +1,26 @@
+{
+  "name": "nostalgia-charts",
+  "version": "1.0.0",
+  "description": "A website to create last.fm charts based on listener activity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulovgf/nostalgia-charts.git"
+  },
+  "author": "Paulo Victor G. Farias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulovgf/nostalgia-charts/issues"
+  },
+  "homepage": "https://github.com/paulovgf/nostalgia-charts#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.11",
+    "morgan": "^1.10.0"
+  }
+}
