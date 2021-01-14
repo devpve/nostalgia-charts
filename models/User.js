@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-  lastfmId: {
+  username: {
     type: String,
     require: true
   },
   displayName: {
     type: String,
+    require: true
+  },
+  image: {
+    type: String, 
     require: true
   },
   createdAt: {
