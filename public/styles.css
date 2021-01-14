@@ -1,0 +1,82 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+p {
+  margin: 10px 0 !important;
+}
+
+footer {
+  background-color: #ef6c00;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem !important;
+
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+footer a {
+  text-decoration: none;
+  color: rgb(206, 206, 206);
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  /* ...and now for the proper property */
+  transition: 0.5s;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("BG.png");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.logo-text {
+  padding-left: 4rem;
+}
+
+.nav-container {
+  background-color: #ef6c00;
+}
+
+.login-container {
+  width: 400px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.error-container {
+  width: 50rem;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.icon {
+  width: 150px;
+  height: 150px;
+}

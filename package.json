@@ -4,7 +4,8 @@
   "description": "A website to create last.fm charts based on listener activity.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app"
   },
   "repository": {
     "type": "git",
@@ -17,10 +18,18 @@
   },
   "homepage": "https://github.com/paulovgf/nostalgia-charts#readme",
   "dependencies": {
+    "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "lodash": "^4.17.20",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
     "mongoose": "^5.11.11",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-lastfm": "^1.0.1",
+    "path": "^0.12.7"
   }
 }
