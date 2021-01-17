@@ -3,6 +3,13 @@ html {
   height: 100%;
   margin: 0;
   background-color: rgb(230, 230, 230);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 p {
@@ -10,16 +17,11 @@ p {
 }
 
 footer {
-  background-color: #ef6c00;
   color: white;
+  margin: 0 !important;
   text-align: center;
-  padding: 1rem;
   font-size: 1rem !important;
-
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
+  padding: 1rem;
 }
 
 footer a {
@@ -37,6 +39,22 @@ footer a:hover {
   color: white;
 }
 
+.centering {
+  text-align: center;
+}
+
+.border {
+  border-radius: 50%;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  border: 4px solid white;
+}
+
+.border:focus {
+  box-shadow: 0 0 0 2pt white;
+}
+
 .bg {
   /* The image used */
   background-image: url("BG.png");
@@ -51,28 +69,12 @@ footer a:hover {
 }
 
 .logo {
-  width: 2rem;
-  height: 2rem;
-  margin-top: 1rem;
-  margin-left: 1rem;
+  padding-left: 10px;
 }
 
-.logo-text {
-  padding-left: 4rem;
-}
-
-.nav-container {
-  background-color: #ef6c00;
-}
-
+/* login */
 .login-container {
   width: 400px;
-  padding-top: 50px;
-  text-align: center;
-}
-
-.error-container {
-  width: 50rem;
   padding-top: 50px;
   text-align: center;
 }
@@ -80,4 +82,58 @@ footer a:hover {
 .icon {
   width: 150px;
   height: 150px;
+}
+
+/* 404 */
+.error-container {
+  width: 50rem;
+  padding-top: 50px;
+  text-align: center;
+}
+
+/* Dashboard */
+.dashboard-sidebar {
+  background-color: rgb(65, 65, 65);
+  color: white;
+  text-align: center;
+  height: 100%;
+}
+
+.dashboard-icon {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard-icon:hover {
+  color: #fff;
+  opacity: 0.6;
+  transition: opacity 0.55s ease-in-out;
+  -moz-transition: opacity 0.55s ease-in-out;
+  -webkit-transition: opacity 0.55s ease-in-out;
+}
+
+.dashboard-row {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.dashboard-img {
+  width: 50%;
+  height: 50%;
+}
+
+.dashboard-sidebar {
+  font-size: 1.3rem;
+}
+
+.dashboard-sidebar li {
+  background-color: rgb(88, 88, 88);
+}
+
+.dashboard-sidebar a {
+  color: white;
 }
