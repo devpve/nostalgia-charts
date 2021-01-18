@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/paulovgf/nostalgia-charts#readme",
   "dependencies": {
+    "btoa-atob": "^0.1.2",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",

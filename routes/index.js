@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const chartController = require('../controllers/chartController');
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 // @desc Login/Landing page
@@ -10,11 +11,7 @@ router.get('/', ensureGuest, (req, res) => {
 
 // @desc Dashboard
 // @route GET /dashboard
-router.get('/dashboard', ensureAuth, (req, res) => {
-  res.render('dashboard', {
-    title: 'Dashboard', name: req.user.displayName, image: req.user.image
-  });
-})
+router.get('/dashboard', ensureAuth, chartController.chart_individual_simple);
 
 // @desc  Logout user
 // @route /auth/logout
