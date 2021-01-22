@@ -1,0 +1,29 @@
+<div class="group-popup-create" id="group-popup-delete">
+  <div class="card popup-content">
+    <div class="card-content">
+      <div class="close-popup close-popup-delete"><span>&times;</span></div>
+      <div class="row popup-title">
+        <h4 class="new-orange">Deletar Grupo</h4>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="input-field col s12">
+            <select class="icons" id="group-delete-list" required>
+              <option value="" selected>Escolha um grupo</option>
+              <% for (group of groups) { %>
+                <option value="<%= group._id%>" data-icon="<%= group.image %>"> <%= group.name %></option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <button type="submit">
+            <div class="btn orange darken-3">
+              <span class="group-delete-submit">Deletar</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="group-list">
+  <% if (groups) { %>
+    <% for (group of groups) { %>
+      <div class="card group-individual-2 new-grey">
+        <div class="card-content group-individual">
+          <img class="group-img border" src="<%= group.image %>">
+          <div class="group-info">
+            <h4 class="group-title"><%= group.name %></h4>
+            <h6 class="group-description"><%= group.description %></h6>
+            <h6 class="group-members"><strong>Membros (<%= group.users.length %>): </strong> <% for (user of group.users) { %>
+              <% if (user === group.users[group.users.length - 1]) { %>
+                <span><%= user %></span>
+              <% } else { %>
+                <span><%= user %>, </span>
+            <% }} %>
+            </h6>
+          </div>
+
+          <!-- Add and remove users -->
+          <div class="group-options new-orange">
+            <div class="group-popup group-popup-add-button" value="<%= group._id %>">
+              <p><i class="material-icons">person_add</i> Adicionar</p>
+            </div>
+            <br>
+            <div class="group-popup group-popup-remove-button" value="<%= group._id %>">
+              <p><i class="material-icons">person_remove</i> Remover</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  <% } %>
+</div>

@@ -2,18 +2,18 @@ body,
 html {
   height: 100%;
   margin: 0;
+  padding: 0;
   background-color: rgb(230, 230, 230);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 main {
   flex: 1 0 auto;
-}
-
-p {
-  margin: 10px 0 !important;
 }
 
 footer {
@@ -39,8 +39,28 @@ footer a:hover {
   color: white;
 }
 
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 .centering {
   text-align: center;
+}
+
+.new-orange {
+  color: rgb(239, 108, 0);
+}
+
+.new-grey {
+  background-color: rgb(243, 243, 243);
 }
 
 .border {
@@ -49,10 +69,16 @@ footer a:hover {
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
   border: 4px solid white;
+  transition: transform 1s, filter 1s ease-in-out;
 }
 
 .border:focus {
   box-shadow: 0 0 0 2pt white;
+}
+
+.border:hover {
+  filter: opacity(0.7);
+  transform: scale(1.1);
 }
 
 .bg {
@@ -91,49 +117,205 @@ footer a:hover {
   text-align: center;
 }
 
-/* Dashboard */
-.dashboard-sidebar {
-  background-color: rgb(65, 65, 65);
+/* Sidebar */
+.sidebar {
+  background-color: rgb(65, 65, 65, 0.9);
+  width: 12rem;
   color: white;
   text-align: center;
   height: 100%;
+  width: 20%;
+  margin-left: 0 !important;
 }
 
-.dashboard-icon {
-  width: 150px;
-  height: 150px;
+.sidebar-icon {
+  width: 100%;
   display: block;
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
+  transition: 0.3s ease-in-out;
 }
 
-.dashboard-icon:hover {
-  color: #fff;
+.sidebar-icon:hover {
   opacity: 0.6;
-  transition: opacity 0.55s ease-in-out;
-  -moz-transition: opacity 0.55s ease-in-out;
-  -webkit-transition: opacity 0.55s ease-in-out;
 }
 
-.dashboard-row {
+.sidebar-list ul li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+}
+
+.sidebar-list ul li p a {
+  display: block;
+  color: #fff;
+  transition: 0.5s ease-in-out;
+}
+
+.sidebar-list ul li p a .material-icons {
+  float: left;
+  padding-left: 0.5rem;
+}
+
+.sidebar-list ul li:hover {
+  background: rgb(65, 65, 65, 0.9);
+}
+
+.sidebar-list .active-link {
+  background: rgb(65, 65, 65, 0.9);
+}
+
+/* Dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   height: 100%;
-  margin-bottom: 0;
+}
+
+.dashboard-stats {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard-title h2 {
+  color: rgb(239, 108, 0);
+}
+
+.dashboard-column {
+  width: 33%;
 }
 
 .dashboard-img {
   width: 50%;
-  height: 50%;
 }
 
-.dashboard-sidebar {
-  font-size: 1.3rem;
+/* groups */
+.group-card {
+  width: 95%;
+  height: 90%;
+  margin: 2rem auto 2rem auto;
 }
 
-.dashboard-sidebar li {
-  background-color: rgb(88, 88, 88);
+.group-title {
+  color: rgb(239, 108, 0);
+  margin-top: 0;
 }
 
-.dashboard-sidebar a {
-  color: white;
+.group-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.group-list {
+  margin: 0 auto;
+  width: 75%;
+  height: 400px;
+  overflow-y: auto;
+  scroll-padding: 10px;
+}
+
+.group-menu {
+  margin: 0 auto;
+  width: 20%;
+  color: #fff;
+}
+
+.group-menu .material-icons {
+  float: left;
+  padding-left: 0.5rem;
+}
+
+.group-individual {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.group-individual-2 {
+  margin-right: 1rem;
+}
+
+.group-img {
+  width: 20%;
+  height: 20%;
+}
+
+.group-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
+  width: 70%;
+}
+
+.group-description {
+  margin-top: 0;
+}
+
+.group-options {
+  width: 10%;
+  font-size: 0.9rem;
+  margin: auto 0 auto 3rem;
+}
+
+.group-members {
+  text-align: justify;
+}
+
+/* popup */
+.group-popup {
+  cursor: pointer;
+}
+
+.group-popup-create {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  margin: 1% auto; /* 15% from the top and centered */
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+.popup-title {
+  margin: -1rem 0;
+}
+
+/* The Close Button */
+.close-popup {
+  display: flex;
+  margin: 0 0 0 95%;
+  color: #aaa;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

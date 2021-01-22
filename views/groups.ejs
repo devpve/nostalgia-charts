@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <%- include ('./partials/head.ejs') %>
+<body>
+  <%- include ('./partials/nav.ejs') %>
+
+  <!-- Main container -->
+  <div class="dashboard"> 
+    
+    <!-- Sidebar -->
+    <%- include ('./partials/sidebar.ejs') %>
+
+    <div class="dashboard-container">
+      <div class="card group-card">
+        <div class="card-content">
+          <h2 class="group-title">Meus Grupos</h2>
+          <div class="group-container">
+            
+            <!-- Show all the groups the user created -->
+            <%- include ('./partials/groups/groupList.ejs') %>
+
+            <!-- Menu to create/edit/delete groups -->
+            <%- include ('./partials/groups/groupMenu.ejs') %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup card to create group -->
+    <%- include ('./partials/groups/groupCreate.ejs') %>
+
+    <!-- Popup card to edit group -->
+    <%- include ('./partials/groups/groupEdit.ejs') %>
+
+    <!-- Popup card to delete group -->
+    <%- include ('./partials/groups/groupDelete.ejs') %>
+
+    <!-- Popup card to add user to group -->
+    <%- include ('./partials/groups/groupAddMember.ejs') %>
+
+    <!-- Popup card to deleter user of a group -->
+    <%- include ('./partials/groups/groupRemoveMember.ejs') %>
+
+  </div>
+</body>
+
+<!-- Footer -->
+<%- include('./partials/footer.ejs') %>
+
+<script>
+  
+  var activeLink = document.getElementById("groups");
+  var sidebarActiveLink = document.getElementById("sidebar-groups");
+  activeLink.classList.add("active");
+  sidebarActiveLink.classList.add("active-link");
+
+  var popup = document.getElementById("group-popup-create");
+  var edit_popup = document.getElementById("group-popup-edit");
+  var delete_popup = document.getElementById("group-popup-delete");
+  var add_popup = document.getElementById("group-popup-add-user");
+  var remove_popup = document.getElementById("group-popup-remove-user");
+
+  document.getElementById("group-popup-create-button").addEventListener("click", () => {
+    popup.style.display = "block";
+  });
+
+  document.getElementById("group-popup-edit-button").addEventListener("click", () => {
+    edit_popup.style.display = "block";
+  });
+
+  document.getElementById("group-popup-delete-button").addEventListener("click", () => {
+    delete_popup.style.display = "block";
+  });
+
+  // Get all buttons and add event listeners to them
+  document.querySelectorAll('.group-popup-add-button').forEach(add_button => {
+    add_button.addEventListener('click', (e) => {
+      add_popup.style.display = "block";
+      //console.log(add_button);
+      var addForm = document.getElementById('group-add-user-form');
+      addForm.setAttribute('action', '/groups/' + add_button.getAttribute('value') + '/add');
+    })
+  });
+
+  document.querySelectorAll('.group-popup-remove-button').forEach(remove_button => {
+    remove_button.addEventListener('click', (e) => {
+      remove_popup.style.display = "block";
+      var currentGroup = remove_button.getAttribute('value');
+      var removeForm = document.getElementById('group-remove-user-form');
+      removeForm.setAttribute('action', '/groups/' + currentGroup + '/delete?_method=DELETE');
+    })
+  })
+
+  
+  var span = document.getElementsByClassName("close-popup")[0];
+  var edit_span = document.getElementsByClassName("close-popup-edit")[0];
+  var delete_span = document.getElementsByClassName("close-popup-delete")[0];
+  var add_span = document.getElementsByClassName("close-popup-add-user")[0];
+  var remove_span = document.getElementsByClassName("close-popup-remove-user")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    popup.style.display = "none";
+  }
+
+  edit_span.onclick = () => {
+    edit_popup.style.display = "none";
+  }
+
+  delete_span.onclick = () => {
+    delete_popup.style.display = "none";
+  }
+
+  add_span.onclick = () => {
+    add_popup.style.display = "none";
+  }
+
+  remove_span.onclick = () => {
+    remove_popup.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == popup) {
+      popup.style.display = "none";
+    }
+
+    if (event.target == edit_popup) {
+      edit_popup.style.display = "none";
+    }
+
+    if (event.target == delete_popup) {
+      delete_popup.style.display = "none";
+    }
+
+    if (event.target == add_popup) {
+      add_popup.style.display = "none";
+    }
+
+    if (event.target == remove_popup) {
+      remove_popup.style.display = "none";
+    }
+  }
+
+  var options = [];
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
+
+  const deleteSubmit = document.getElementsByClassName('group-delete-submit')[0];
+  const groupDeleteList = document.getElementById('group-delete-list');
+  var groupToDelete = [];
+
+  groupDeleteList.addEventListener('change', () => { 
+    groupToDelete = groupDeleteList.value;
+  });
+
+  var groupToEdit = [];
+  const groupToEditList = document.getElementById('group-edit-list');
+
+  var editForm = document.getElementById('group-edit-form');
+
+  groupToEditList.addEventListener('change', () => {
+    groupToEdit = groupToEditList.value
+    editForm.setAttribute('action', '/groups/' + groupToEdit + '?_method=PUT');
+  })
+
+  deleteSubmit.addEventListener('click', (e) => {
+    if (groupToDelete) {
+      const endpoint = `/groups/${groupToDelete}`;
+      fetch(endpoint, { method: 'DELETE' })
+      .then((response) => response.json())
+      .then((data) => window.location.href = data.redirect)
+      .catch( err => console.log(err) );
+    }
+  });
+
+</script>
+</html>

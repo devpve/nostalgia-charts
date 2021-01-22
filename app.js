@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const ejs = require('ejs');
+const methodOverride = require('method-override')
 
 // Load config
 dotenv.config( { path: './config/config.env' } );
@@ -49,10 +50,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware to work with post requests
 app.use(express.urlencoded( { extended: true } ));
+app.use(methodOverride('_method'));
 
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
+app.use('/groups', require('./routes/groupRoutes'));
 
 let port = process.env.PORT;
 if (port == null || port == "") {

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <%- include ('./partials/head.ejs') %>
+<body>
+  
+  <%- include ('./partials/nav.ejs') %>
+
+  <!-- Main container -->
+  <div class="dashboard"> 
+    
+    <!-- Sidebar -->
+    <%- include ('./partials/sidebar.ejs') %>
+
+    <div class="dashboard-container">
+      <h1>Oi</h1>
+    </div>
+  </div>
+</body>
+<%- include('./partials/footer.ejs') %>
+<script>
+  var activeLink = document.getElementById("profile");
+  var sidebarActiveLink = document.getElementById("sidebar-profile");
+  activeLink.classList.add("active");
+  sidebarActiveLink.classList.add("active-link");
+</script>
+</html>

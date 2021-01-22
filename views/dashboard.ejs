@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html>
   <%- include ('./partials/head.ejs') %>
-
 <body>
   
   <%- include ('./partials/nav.ejs') %>
-  <!-- Page Layout here -->
 
-  <div class="row dashboard-row">
-
+  <!-- Main container -->
+  <div class="dashboard"> 
+    
     <!-- Sidebar -->
-    <div class="col s12 m4 l2 dashboard-sidebar z-depth-2"> 
-        <img class="dashboard-icon border" src="<%= image%>"/>
-        <% if (name) { %>
-          <h4>Oi <%= name %>!</h4>
-        <% } else { %>
-          <h4>Oi <%= username %>!</h4>
-        <% } %>
-        <ul class="dashboard-sidebar">
-          <li><p><a href="/">Home</a></p></li>
-          <li><p><a href="/profile">Meu Perfil</a></p></li>
-          <li><p><a href="/groups">Meus Grupos</a></p></li>
-          <li><p><a href="/charts">Meus Charts</a></p></li>
-          <li><a href=""></a></li>
-        </ul>
-    </div>
+    <%- include ('./partials/sidebar.ejs') %>
 
-    <!-- Main container -->
-    <div class="col s12 m8 l10 dashboard-container centering"> <!-- Note that "m8 l9" was added -->
-      <div class="row dashboard-row">
+    <div class="dashboard-container">
+      <!-- Title -->
+      <div class="dashboard-title">
         <h2>Janeiro 2021</h2>
-      </div>
-        <!-- First column -->
-        <div class="col l4">
+      </div> 
+
+      <!-- First column -->
+      <div class="dashboard-stats">
+        <div class="dashboard-column">
           <h4>Artista Mais Ouvido</h4>
           <img class="dashboard-img border" src=<%= artist.image %>>
           <h5><%= artist.name %></h5>
           <h6><%= artist.playcount %> Scrobbles</h6>
         </div>
+
         <!-- Second column -->
-        <div class="col l4">
+        <div class="dashboard-column">
           <h4>Álbum Mais Ouvido</h4>
           <img class="dashboard-img border" src=<%= album.image %>/>
           <h5><%= album.artist['#text'] %> — <%= album.name %></h5>
           <h6><%= album.playcount %> Scrobbles</h6>
         </div>
+
         <!-- Third column -->
-        <div class="col l4">
+        <div class="dashboard-column">
           <h4>Música Mais Ouvida</h4>
           <img class="dashboard-img border" src=<%= track.image %>>
           <h5><%= track.artist['#text'] %> — <%= track.name %></h5>
           <h6><%= track.playcount %> Scrobbles</h6>
         </div>
+      </div>
     </div>
   </div>
 </body>
 <%- include('./partials/footer.ejs') %>
 <script>
   var activeLink = document.getElementById("home");
+  var sidebarActiveLink = document.getElementById("sidebar-home");
   activeLink.classList.add("active");
+  sidebarActiveLink.classList.add("active-link");
 </script>
 </html>

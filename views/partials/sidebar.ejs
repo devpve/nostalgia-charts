@@ -1,0 +1,16 @@
+<div class="sidebar"> 
+  <img class="sidebar-icon" src="<%= image%>"/>
+  <% if (name) { %>
+    <h5><%= name %></h5>
+  <% } else { %>
+    <h5><%= username %></h5>
+  <% } %>
+  <div class="sidebar-list">
+    <ul>
+      <li id="sidebar-home"><p><a href="/"><i class="material-icons">home</i>  Home</a></p></li>
+      <li id="sidebar-profile"><p><a href="/profile"><i class="material-icons">account_circle</i>  Meu Perfil</a></p></li>
+      <li id="sidebar-groups"><p><a href="/groups"><i class="material-icons">group</i>  Meus Grupos</a></p></li>
+      <li id="sidebar-charts"><p><a href="/charts"><i class="material-icons">insert_chart</i> Meus Charts</a></p></li>
+    </ul>
+  </div>
+</div>

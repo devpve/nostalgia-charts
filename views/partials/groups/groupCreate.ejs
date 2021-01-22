@@ -1,0 +1,50 @@
+<div class="group-popup-create" id="group-popup-create">
+  <div class="card popup-content">
+    <div class="card-content">
+      <div class="close-popup"><span>&times;</span></div>
+      <div class="row popup-title">
+        <h4 class="new-orange">Criar Novo Grupo</h4>
+      </div>
+      <div class="row">
+        <form class="col s12" action="/groups" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="group_name" type="text" name="name" required>
+              <label for="group_name">Grupo</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="group_description" type="text" name="description">
+              <label for="group_description">Descrição</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="group_members" type="text" name="users" required>
+              <label for="group_members">Membros (separados por vírgula)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="file-field input-field">
+              <div class="btn orange darken-3">
+                <span>Imagem</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path" name="image" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" class="group-create-submit">
+              <div class="btn orange darken-3">
+                <span>Criar</span>
+              </div>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
